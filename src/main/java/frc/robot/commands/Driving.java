@@ -36,16 +36,16 @@ public class Driving extends Command {
     double FL1  = Robot.LFmod.getAngle1();
     double FL2 = Robot.LFmod.getAngle2();
     double angle = Robot.LFmod.getAngle();
-    temp1 = temp1 + wheelSpeeds[0];
     Robot.LFmod.setAngle1((wheelAngles[0]-angle)+(wheelSpeeds[0])+FL1);
-    temp2 = temp2 + wheelSpeeds[0];
     Robot.LFmod.setAngle2((wheelAngles[0]-angle)+(-FL2-wheelSpeeds[0]));
+    
     
     double BL1  = Robot.LBmod.getAngle1();
     double BL2 = Robot.LBmod.getAngle2();
     double angle2 = Robot.LBmod.getAngle();
     Robot.LBmod.setAngle1((wheelAngles[1]-angle2)+(wheelSpeeds[1]+BL1));
     Robot.LBmod.setAngle2((wheelAngles[1]-angle2)+(-BL2-wheelSpeeds[1]));
+    
     
     double FR1  = Robot.FRmod.getAngle1();
     double FR2 = Robot.FRmod.getAngle2();
