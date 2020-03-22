@@ -28,7 +28,7 @@ public class Controls {
         if(Math.abs(throttle)<.1){
             throttle = 0;
         }
-        return -(throttle);
+        return throttle;
     }
     public double getStrafe() {
         double strafe = joystick.getRawAxis(strafeAxis);
