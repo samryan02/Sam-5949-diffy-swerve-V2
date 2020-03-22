@@ -47,7 +47,7 @@ public class Calculations {
         }
         wheelSpeeds[0] = LFS;
         wheelSpeeds[1] = LBS;
-        wheelSpeeds[2] = RFS;
+        wheelSpeeds[2] = -RFS;
         wheelSpeeds[3] = RBS;
 
         return wheelSpeeds;
