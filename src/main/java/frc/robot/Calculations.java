@@ -47,8 +47,13 @@ public class Calculations {
         }
         wheelSpeeds[0] = LFS;
         wheelSpeeds[1] = LBS;
-        wheelSpeeds[2] = -RFS;
+        wheelSpeeds[2] = RFS;
         wheelSpeeds[3] = RBS;
+
+        System.out.println(wheelSpeeds[0]);
+        System.out.println(wheelSpeeds[0]);
+        System.out.println(wheelSpeeds[2]);
+        System.out.println(wheelSpeeds[3]);
 
         return wheelSpeeds;
     }
@@ -71,20 +76,20 @@ public class Calculations {
         double D = throttleRaw+rotateRaw*(Constants.Width/Constants.R);
 
         double LFA;
-        double LBA;
         double RFA;
         double RBA;
+        double LBA;
 
-        LFA = (Math.atan2(B,C))*180/Math.PI;
-        LBA = (Math.atan2(B,D))*180/Math.PI;
-        RFA = (Math.atan2(A,D))*180/Math.PI;
-        RBA = (Math.atan2(A,C))*180/Math.PI;
+        RBA = (Math.atan2(B,C))*180/Math.PI;
+        RFA = (Math.atan2(B,D))*180/Math.PI;
+        LFA = (Math.atan2(A,D))*180/Math.PI;
+        LBA = (Math.atan2(A,C))*180/Math.PI;
 
-        wheelAngles[0] = LFA/60;
-        wheelAngles[1] = LBA/60;
-        wheelAngles[2] = RFA/60;
-        wheelAngles[3] = RBA/60;
-
+        wheelAngles[0] = RBA/60;
+        wheelAngles[1] = RFA/60;
+        wheelAngles[2] = LFA/60;
+        wheelAngles[3] = LBA/60;
+        
         return wheelAngles;
 
         
