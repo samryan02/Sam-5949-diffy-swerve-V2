@@ -39,7 +39,7 @@ public class LFmodule extends Subsystem {
     kFF = 0.000015; 
     kMaxOutput = .5; 
     kMinOutput = -.5;
-    maxRPM = 25;
+    maxRPM = 100;
 
     pidControllerFL1.setP(kP);
     pidControllerFL1.setI(kI);

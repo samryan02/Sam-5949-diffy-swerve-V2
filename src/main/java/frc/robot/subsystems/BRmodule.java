@@ -39,7 +39,7 @@ public class BRmodule extends Subsystem {
     kFF = 0.000015;
     kMaxOutput = .5;
     kMinOutput = -.5;
-    maxRPM = 400;
+    maxRPM = 100;
 
     pidControllerBR1.setP(kP);
     pidControllerBR1.setI(kI);

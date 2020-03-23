@@ -39,7 +39,7 @@ public class LBmodule extends Subsystem {
     kFF = 0.000015;
     kMaxOutput = .5;
     kMinOutput = -.5;
-    maxRPM = 400;
+    maxRPM = 100;
 
     pidControllerBL1.setP(kP);
     pidControllerBL1.setI(kI);

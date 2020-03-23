@@ -32,7 +32,7 @@ public class FRmodule extends Subsystem {
     kFF = 0.000015; 
     kMaxOutput = .5; 
     kMinOutput = -.5;
-    maxRPM = 400;
+    maxRPM = 100;
 
     pidControllerFR1.setP(kP);
     pidControllerFR1.setI(kI);
