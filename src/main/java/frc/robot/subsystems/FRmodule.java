@@ -19,8 +19,8 @@ public class FRmodule extends Subsystem {
   public double kP, kI, kD, kIz, kFF, kMaxOutput, kMinOutput, maxRPM;
 
   public FRmodule() {
-    FrontRightNeo1 = new CANSparkMax(3, MotorType.kBrushless);
-    FrontRightNeo2 = new CANSparkMax(4, MotorType.kBrushless);
+    FrontRightNeo1 = new CANSparkMax(4, MotorType.kBrushless);
+    FrontRightNeo2 = new CANSparkMax(3, MotorType.kBrushless);
     pidControllerFR1 = FrontRightNeo1.getPIDController();
     pidControllerFR2 = FrontRightNeo2.getPIDController();
     FrontRightNeo1.getEncoder();
@@ -32,7 +32,7 @@ public class FRmodule extends Subsystem {
     kFF = 0.000015; 
     kMaxOutput = .5; 
     kMinOutput = -.5;
-    maxRPM = 100;
+    maxRPM = 500;
 
     pidControllerFR1.setP(kP);
     pidControllerFR1.setI(kI);

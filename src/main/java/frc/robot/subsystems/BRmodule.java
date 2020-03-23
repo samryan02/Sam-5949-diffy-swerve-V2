@@ -26,8 +26,8 @@ public class BRmodule extends Subsystem {
   public double kP, kI, kD, kIz, kFF, kMaxOutput, kMinOutput, maxRPM;
 
   public BRmodule() {
-    BackRightNeo1 = new CANSparkMax(8, MotorType.kBrushless);
-    BackRightNeo2 = new CANSparkMax(7, MotorType.kBrushless);
+    BackRightNeo1 = new CANSparkMax(7, MotorType.kBrushless);
+    BackRightNeo2 = new CANSparkMax(8, MotorType.kBrushless);
     pidControllerBR1 = BackRightNeo1.getPIDController();
     pidControllerBR2 = BackRightNeo2.getPIDController();
     BackRightNeo1.getEncoder();
@@ -39,7 +39,7 @@ public class BRmodule extends Subsystem {
     kFF = 0.000015;
     kMaxOutput = .5;
     kMinOutput = -.5;
-    maxRPM = 100;
+    maxRPM = 500;
 
     pidControllerBR1.setP(kP);
     pidControllerBR1.setI(kI);

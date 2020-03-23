@@ -26,8 +26,8 @@ public class LBmodule extends Subsystem {
   public double kP, kI, kD, kIz, kFF, kMaxOutput, kMinOutput, maxRPM;
 
   public LBmodule() {
-    BackLeftNeo1 = new CANSparkMax(5, MotorType.kBrushless);
-    BackLeftNeo2 = new CANSparkMax(6, MotorType.kBrushless);
+    BackLeftNeo1 = new CANSparkMax(6, MotorType.kBrushless);
+    BackLeftNeo2 = new CANSparkMax(5, MotorType.kBrushless);
     pidControllerBL1 = BackLeftNeo1.getPIDController();
     pidControllerBL2 = BackLeftNeo2.getPIDController();
     BackLeftNeo1.getEncoder();
@@ -39,7 +39,7 @@ public class LBmodule extends Subsystem {
     kFF = 0.000015;
     kMaxOutput = .5;
     kMinOutput = -.5;
-    maxRPM = 100;
+    maxRPM = 500;
 
     pidControllerBL1.setP(kP);
     pidControllerBL1.setI(kI);

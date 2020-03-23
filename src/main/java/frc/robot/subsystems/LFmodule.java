@@ -26,8 +26,8 @@ public class LFmodule extends Subsystem {
   public double kP, kI, kD, kIz, kFF, kMaxOutput, kMinOutput, maxRPM;
 
   public LFmodule() {
-    FrontLeftNeo1 = new CANSparkMax(1, MotorType.kBrushless);
-    FrontLeftNeo2 = new CANSparkMax(2, MotorType.kBrushless);
+    FrontLeftNeo1 = new CANSparkMax(2, MotorType.kBrushless);
+    FrontLeftNeo2 = new CANSparkMax(1, MotorType.kBrushless);
     pidControllerFL1 = FrontLeftNeo1.getPIDController();
     pidControllerFL2 = FrontLeftNeo2.getPIDController();
     FrontLeftNeo1.getEncoder();
@@ -39,7 +39,7 @@ public class LFmodule extends Subsystem {
     kFF = 0.000015; 
     kMaxOutput = .5; 
     kMinOutput = -.5;
-    maxRPM = 100;
+    maxRPM = 500;
 
     pidControllerFL1.setP(kP);
     pidControllerFL1.setI(kI);
