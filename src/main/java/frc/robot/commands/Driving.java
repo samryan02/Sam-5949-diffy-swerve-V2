@@ -40,47 +40,26 @@ public class Driving extends Command {
     double[] wheelAngles = Robot.calculations.wheelAngles();
     double[] wheelSpeeds = Robot.calculations.wheelSpeeds();
 
-    
-    
-    //double FL1  = Robot.LFmod.getAngle1();
-    //double FL2 = Robot.LFmod.getAngle2();
-    //double angle = Robot.LFmod.getAngle();
-
     FL1 = FL1+ wheelSpeeds[0];
     FL2 = FL2- wheelSpeeds[0];
     Robot.LFmod.setAngle1((wheelAngles[0])+(FL1));
     Robot.LFmod.setAngle2((wheelAngles[0])+(FL2));
     
-    
-    //double BL1  = Robot.LBmod.getAngle1();
-    //double BL2 = Robot.LBmod.getAngle2();
-    //double angle2 = Robot.LBmod.getAngle();
     BL1 = BL1+ wheelSpeeds[1];
     BL2 = BL2- wheelSpeeds[1];
     Robot.LBmod.setAngle1((wheelAngles[1])+(BL1));
     Robot.LBmod.setAngle2((wheelAngles[1])+(BL2));
     
-    
-    //double FR1  = Robot.FRmod.getAngle1();
-    //double FR2 = Robot.FRmod.getAngle2();
-    //double angle3 = Robot.FRmod.getAngle();
     FR1 = FR1+ wheelSpeeds[2];
     FR2 = FR2- wheelSpeeds[2];
     Robot.FRmod.setAngle1((wheelAngles[2])+(FR1));
     Robot.FRmod.setAngle2((wheelAngles[2])+(FR2));
 
-    //double BR1  = Robot.BRmod.getAngle1();
-    //double BR2 = Robot.BRmod.getAngle2();
-    //double angle4 = Robot.BRmod.getAngle();
     BR1 = BR1+ wheelSpeeds[3];
     BR2 = BR2- wheelSpeeds[3];
     Robot.BRmod.setAngle1((wheelAngles[3])+(BR1));
     Robot.BRmod.setAngle2((wheelAngles[3])+(BR2));
     
-    //Robot.LFmod.setAngle1(6);
-    //Robot.LFmod.setAngle2(6);
-
-
   }
 
   // Make this return true when this Command no longer needs to run execute()
