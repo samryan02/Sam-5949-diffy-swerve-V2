@@ -11,33 +11,54 @@ package frc.robot;
  * Add your docs here.
  */
 public class Calculations {
-    //math for getting wheel speeds
+    double[] swerveControls;
+    double[] wheelSpeeds;
+    double[] wheelAngles;
+    double throttleRaw;
+    double strafeRaw;
+    double rotateRaw;
+    double temp;
+    double A;
+    double B;
+    double C;
+    double D;
+    double LFS;
+    double LBS;
+    double RFS;
+    double RBS;
+    double max1;
+    double max2;
+    double max;
+    double LFA;
+    double RFA;
+    double RBA;
+    double LBA;
     public double[] wheelSpeeds(){
-        double[] swerveControls = Robot.controls.getSwerveControls();
+        swerveControls = Robot.controls.getSwerveControls();
 
-        double[] wheelSpeeds = new double[4];
+        wheelSpeeds = new double[4];
 
-        double throttleRaw = swerveControls[0];
-        double strafeRaw = swerveControls[1];
-        double rotateRaw = swerveControls[2];
+        throttleRaw = swerveControls[0];
+        strafeRaw = swerveControls[1];
+        rotateRaw = swerveControls[2];
 
-        double temp = throttleRaw*Math.cos(0) + strafeRaw*Math.sin(0);
+        temp = throttleRaw*Math.cos(0) + strafeRaw*Math.sin(0);
         strafeRaw = -throttleRaw*Math.sin(0) + strafeRaw*Math.cos(0);
         throttleRaw = temp;
         
-        double A = strafeRaw-rotateRaw*(Constants.Length/Constants.R);
-        double B = strafeRaw+rotateRaw*(Constants.Length/Constants.R);
-        double C = throttleRaw-rotateRaw*(Constants.Width/Constants.R);
-        double D = throttleRaw+rotateRaw*(Constants.Width/Constants.R);
+        A = strafeRaw-rotateRaw*(Constants.Length/Constants.R);
+        B = strafeRaw+rotateRaw*(Constants.Length/Constants.R);
+        C = throttleRaw-rotateRaw*(Constants.Width/Constants.R);
+        D = throttleRaw+rotateRaw*(Constants.Width/Constants.R);
 
-        double LFS = Math.sqrt((B*B)+(C*C));
-        double LBS = Math.sqrt((B*B)+(D*D));
-        double RFS = Math.sqrt((A*A)+(D*D));
-        double RBS = Math.sqrt((A*A)+(C*C));
+        LFS = Math.sqrt((B*B)+(C*C));
+        LBS = Math.sqrt((B*B)+(D*D));
+        RFS = Math.sqrt((A*A)+(D*D));
+        RBS = Math.sqrt((A*A)+(C*C));
 
-        double max1 = Math.max(LFS, LBS);
-        double max2 = Math.max(RFS, RBS);
-        double max = Math.max(max1, max2);
+        max1 = Math.max(LFS, LBS);
+        max2 = Math.max(RFS, RBS);
+        max = Math.max(max1, max2);
 
         if(max > 1){
             LFS = LFS/max;
@@ -49,7 +70,8 @@ public class Calculations {
         wheelSpeeds[1] = LBS;
         wheelSpeeds[2] = RFS;
         wheelSpeeds[3] = RBS;
-
+        
+        //just some debuging stuff
         System.out.println(wheelSpeeds[0]);
         System.out.println(wheelSpeeds[0]);
         System.out.println(wheelSpeeds[2]);
@@ -59,27 +81,24 @@ public class Calculations {
     }
     // math for getting angles
     public double[] wheelAngles(){
-        double[] swerveControls = Robot.controls.getSwerveControls();
+        swerveControls = Robot.controls.getSwerveControls();
 
-        double[] wheelAngles = new double[4];
+        wheelAngles = new double[4];
 
-        double throttleRaw = swerveControls[0];
-        double strafeRaw = swerveControls[1];
-        double rotateRaw = swerveControls[2];
+        throttleRaw = swerveControls[0];
+        strafeRaw = swerveControls[1];
+        rotateRaw = swerveControls[2];
 
-        double temp = throttleRaw*Math.cos(0) + strafeRaw*Math.sin(0);
+        temp = throttleRaw*Math.cos(0) + strafeRaw*Math.sin(0);
         strafeRaw = -throttleRaw*Math.sin(0) + strafeRaw*Math.cos(0);
         throttleRaw = temp;
         
-        double A = strafeRaw-rotateRaw*(Constants.Length/Constants.R);
-        double B = strafeRaw+rotateRaw*(Constants.Length/Constants.R);
-        double C = throttleRaw-rotateRaw*(Constants.Width/Constants.R);
-        double D = throttleRaw+rotateRaw*(Constants.Width/Constants.R);
+        A = strafeRaw-rotateRaw*(Constants.Length/Constants.R);
+        B = strafeRaw+rotateRaw*(Constants.Length/Constants.R);
+        C = throttleRaw-rotateRaw*(Constants.Width/Constants.R);
+        D = throttleRaw+rotateRaw*(Constants.Width/Constants.R);
 
-        double LFA;
-        double RFA;
-        double RBA;
-        double LBA;
+        
 
         RBA = (Math.atan2(B,C))*180/Math.PI;
         RFA = (Math.atan2(B,D))*180/Math.PI;
