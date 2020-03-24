@@ -12,6 +12,9 @@ import frc.robot.Robot;
 
 public class Driving extends Command {
   //initalize vaiable for setting set point to increase traslation speed(location)
+  double[] wheelAngles;
+  double[] wheelSpeeds;
+
   double FL1 = 0;
   double FL2 = 0;
   double FR1 = 0;
@@ -20,7 +23,6 @@ public class Driving extends Command {
   double BL2 = 0;
   double BR1 = 0;
   double BR2 = 0;
-
   public Driving() {
     //declare substem depedency
 
@@ -28,6 +30,9 @@ public class Driving extends Command {
     requires(Robot.LBmod);
     requires(Robot.FRmod);
     requires(Robot.BRmod);
+
+    
+
   }
 
   // Called just before this Command runs the first time
@@ -39,8 +44,8 @@ public class Driving extends Command {
   @Override
   protected void execute() {
     // get wheel speeds and angles from calculations class
-    double[] wheelAngles = Robot.calculations.wheelAngles();
-    double[] wheelSpeeds = Robot.calculations.wheelSpeeds();
+    wheelAngles = Robot.calculations.wheelAngles();
+    wheelSpeeds = Robot.calculations.wheelSpeeds();
     
     // alter the set point varible using wheel speed
     FL1 = FL1+ wheelSpeeds[0];
