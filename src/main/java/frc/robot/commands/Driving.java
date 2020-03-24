@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
 public class Driving extends Command {
+  //initalize vaiable for setting set point to increase traslation speed(location)
   double FL1 = 0;
   double FL2 = 0;
   double FR1 = 0;
@@ -21,7 +22,8 @@ public class Driving extends Command {
   double BR2 = 0;
 
   public Driving() {
-    // Use requires() here to declare subsystem dependencies
+    //declare substem depedency
+
     requires(Robot.LFmod);
     requires(Robot.LBmod);
     requires(Robot.FRmod);
@@ -36,12 +38,14 @@ public class Driving extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    //double[] wheelAngles = Robot.calculations.wheelAngles();
+    // get wheel speeds and angles from calculations class
     double[] wheelAngles = Robot.calculations.wheelAngles();
     double[] wheelSpeeds = Robot.calculations.wheelSpeeds();
     
+    // alter the set point varible using wheel speed
     FL1 = FL1+ wheelSpeeds[0];
     FL2 = FL2- wheelSpeeds[0];
+    //integrate wheel speed and angle to setpoint for each motor
     Robot.LFmod.setAngle1((wheelAngles[0])+(FL1));
     Robot.LFmod.setAngle2((wheelAngles[0])+(FL2));
     

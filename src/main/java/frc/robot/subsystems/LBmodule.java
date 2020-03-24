@@ -15,9 +15,7 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.commands.Driving;
 
-/**
- * Add your docs here.
- */
+// please note that the LF mod class is fully commented
 public class LBmodule extends Subsystem {
   private CANSparkMax BackLeftNeo1;
   private CANSparkMax BackLeftNeo2;

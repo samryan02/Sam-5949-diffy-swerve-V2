@@ -11,7 +11,7 @@ package frc.robot;
  * Add your docs here.
  */
 public class Calculations {
-    
+    //math for getting wheel speeds
     public double[] wheelSpeeds(){
         double[] swerveControls = Robot.controls.getSwerveControls();
 
@@ -57,6 +57,7 @@ public class Calculations {
 
         return wheelSpeeds;
     }
+    // math for getting angles
     public double[] wheelAngles(){
         double[] swerveControls = Robot.controls.getSwerveControls();
 
