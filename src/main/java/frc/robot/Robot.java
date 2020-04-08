@@ -33,6 +33,7 @@ public class Robot extends TimedRobot {
   public static FRmodule FRmod = new FRmodule();
   public static Controls controls;
   public static Calculations calculations;
+  public static Gyro gyro = new Gyro();
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 

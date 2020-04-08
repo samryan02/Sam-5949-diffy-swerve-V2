@@ -33,6 +33,7 @@ public class Calculations {
     double RFA;
     double RBA;
     double LBA;
+    double GyroRadians;
     public double[] wheelSpeeds(){
         swerveControls = Robot.controls.getSwerveControls();
 
@@ -41,9 +42,10 @@ public class Calculations {
         throttleRaw = swerveControls[0];
         strafeRaw = swerveControls[1];
         rotateRaw = swerveControls[2];
-
-        temp = throttleRaw*Math.cos(0) + strafeRaw*Math.sin(0);
-        strafeRaw = -throttleRaw*Math.sin(0) + strafeRaw*Math.cos(0);
+        GyroRadians = Robot.gyro.getGyroRadians();
+        
+        double temp = throttleRaw*Math.cos(GyroRadians) + strafeRaw*Math.sin(GyroRadians);
+        strafeRaw = -throttleRaw*Math.sin(GyroRadians) + strafeRaw*Math.cos(GyroRadians);
         throttleRaw = temp;
         
         A = strafeRaw-rotateRaw*(Constants.Length/Constants.R);
