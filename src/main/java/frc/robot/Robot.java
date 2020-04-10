@@ -7,6 +7,8 @@
 
 package frc.robot;
 
+import com.analog.adis16470.frc.ADIS16470_IMU;
+
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -33,7 +35,7 @@ public class Robot extends TimedRobot {
   public static FRmodule FRmod = new FRmodule();
   public static Controls controls;
   public static Calculations calculations;
-  public static Gyro gyro = new Gyro();
+  public static final ADIS16470_IMU imu = new ADIS16470_IMU();
   Command m_autonomousCommand;
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
